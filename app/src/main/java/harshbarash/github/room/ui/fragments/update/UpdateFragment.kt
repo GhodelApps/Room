@@ -1,18 +1,16 @@
 package harshbarash.github.room.ui.fragments.update
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
-import android.view.*
-import androidx.fragment.app.Fragment
+import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import harshbarash.github.room.R
-import harshbarash.github.room.databinding.FragmentAddBinding
 import harshbarash.github.room.databinding.FragmentUpdateBinding
 import harshbarash.github.room.model.Task
 import harshbarash.github.room.viewModel.TaskViewModel
@@ -39,6 +37,13 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
             updateItem()
         }
 
+        _binding.ivBackBtn.setOnClickListener {
+        findNavController().popBackStack()
+    }
+
+        _binding.btnTrash.setOnClickListener {
+            deleteTask()
+        }
     }
 
     private fun updateItem() {
@@ -65,15 +70,9 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
     }
 
 
-    private fun deleteUser() {
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Да") { _, _ ->
+    private fun deleteTask() {
             mTaskViewModel.deleteTask(args.task)
             view?.let { Snackbar.make(it, "Удалена задача: ${args.task.title}", Snackbar.LENGTH_LONG) }
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
-        }
-        builder.setNegativeButton("Нет") { _, _ -> }
-        builder.setTitle("Удалить ${args.task.title}?")
-        builder.create().show()
     }
 }

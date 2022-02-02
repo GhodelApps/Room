@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/_14ssp"
-        android:layout_marginStart="@dimen/_36sdp"
+        android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:fontFamily="@font/roboto_medium"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_36sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
         android:textSize="@dimen/_12ssp"
         android:fontFamily="@font/roboto"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,11 +34,23 @@
         android:id="@+id/tvDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_36sdp"
+        android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
         android:textSize="@dimen/_12ssp"
+        android:singleLine="false"
         android:fontFamily="@font/roboto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTask"
         tools:text="Описание" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:background="?attr/colorPrimaryVariant"
+        app:layout_constraintTop_toBottomOf="@+id/tvDesc" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

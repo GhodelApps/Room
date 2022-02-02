@@ -1,6 +1,7 @@
 package harshbarash.github.room.ui.fragments.add
 
 import android.os.Bundle
+import android.text.Editable
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -26,6 +27,12 @@ class AddFragment : Fragment(R.layout.fragment_add) {
         _binding.btnCreate.setOnClickListener {
             insertDataToDatabase()
         }
+
+        _binding.ivBackBtn.setOnClickListener {
+            _binding.ivBackBtn.setOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
     }
 
     private fun insertDataToDatabase() {
@@ -33,18 +40,18 @@ class AddFragment : Fragment(R.layout.fragment_add) {
        val description = _binding.etDesc.text.toString()
        val point = _binding.etPoint.text.toString().toInt()
 
-        if(inputCheck(task)) {
+        if(inputCheck(task, description, point)) {
             val task = Task(id, task, description, point)
             mTaskViewModel.addTask(task)
-            view?.let { Snackbar.make(it, "Задача поставлена", Snackbar.LENGTH_LONG) }
+            view?.let { Snackbar.make(it, "Задача поставлена", Snackbar.LENGTH_LONG).show() }
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
         } else {
-            view?.let { Snackbar.make(it, "Поставьте задачу", Snackbar.LENGTH_LONG) }
+            view?.let { Snackbar.make(it, "Поставьте задачу", Snackbar.LENGTH_LONG).show() }
         }
     }
 
-    private fun inputCheck(task: String): Boolean {
-        return !(TextUtils.isEmpty(task))
+    private fun inputCheck(task: String, description: String, point: Int): Boolean{
+        return !TextUtils.isEmpty(task) && (point >= 0)
     }
 }
 

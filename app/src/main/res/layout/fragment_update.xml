@@ -170,7 +170,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/_20sdp"
         android:layout_marginBottom="@dimen/_25sdp"
-        android:src="@drawable/ic_add"
+        android:src="@drawable/ic_update"
         android:stateListAnimator="@null"
         app:backgroundTint="?attr/colorPrimaryVariant" />
 

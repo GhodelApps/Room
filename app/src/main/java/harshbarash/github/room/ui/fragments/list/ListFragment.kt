@@ -1,9 +1,7 @@
 package harshbarash.github.room.ui.fragments.list
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -44,14 +42,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
     }
 
     private fun deleteAllTasks() {
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Да") { _, _ ->
             mTaskViewModel.deleteAllTasks()
             view?.let { Snackbar.make(it, "Задачи удалены", Snackbar.LENGTH_LONG).show() }
-
         }
-        builder.setNegativeButton("Нет") { _, _ -> }
-        builder.setTitle("Удалить задачи?")
-        builder.create().show()
-    }
 }

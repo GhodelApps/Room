@@ -33,20 +33,6 @@
                 android:backgroundTint="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|enterAlways|snap" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/btnTrash"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_1sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:src="@drawable/ic_trash"
-                app:backgroundTint="?attr/colorPrimaryVariant"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/topAppBar"
-                app:layout_constraintTop_toTopOf="parent" />
-
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/ivBackBtn"
@@ -112,11 +98,13 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etDesc"
                 android:layout_width="@dimen/_270sdp"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/_40sdp"
                 android:padding="@dimen/_10sdp"
                 android:fontFamily="@font/roboto"
                 android:hint="Описание"
                 android:background="@null"
+                android:inputType="textMultiLine"
                 app:layout_constraintBottom_toTopOf="@+id/btnontime"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -144,6 +132,7 @@
                 android:background="@null"
                 android:fontFamily="@font/roboto"
                 android:hint="Очки"
+                android:inputType="numberDecimal"
                 app:layout_constraintBottom_toTopOf="@+id/btnontime"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -12,10 +12,18 @@
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_listFragment_to_addFragment"
-            app:destination="@id/addFragment" />
+            app:destination="@id/addFragment"
+            app:enterAnim="@anim/to_left_in"
+            app:exitAnim="@anim/to_left_out"
+            app:popEnterAnim="@anim/to_right_in"
+            app:popExitAnim="@anim/to_right_out"/>
         <action
             android:id="@+id/action_listFragment_to_updateFragment"
-            app:destination="@id/updateFragment" />
+            app:destination="@id/updateFragment"
+            app:enterAnim="@anim/to_left_in"
+            app:exitAnim="@anim/to_left_out"
+            app:popEnterAnim="@anim/to_right_in"
+            app:popExitAnim="@anim/to_right_out"/>
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -24,7 +32,11 @@
         tools:layout="@layout/fragment_add" >
         <action
             android:id="@+id/action_addFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/to_left_in"
+            app:exitAnim="@anim/to_left_out"
+            app:popEnterAnim="@anim/to_right_in"
+            app:popExitAnim="@anim/to_right_out" />
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
@@ -33,7 +45,11 @@
         tools:layout="@layout/fragment_update" >
         <action
             android:id="@+id/action_updateFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/to_left_in"
+            app:exitAnim="@anim/to_left_out"
+            app:popEnterAnim="@anim/to_right_in"
+            app:popExitAnim="@anim/to_right_out" />
         <argument
             android:name="task"
             app:argType="harshbarash.github.room.model.Task" />
