@@ -7,11 +7,11 @@ import androidx.room.RoomDatabase
 import harshbarash.github.room.model.Task
 
 @Database(entities = [Task::class], version = 1, exportSchema = false)
-abstract class TaskDatabase: RoomDatabase() {
+abstract class TaskDatabase : RoomDatabase() {
 
     abstract fun taskDao(): TaskDao
 
-    companion object{
+    companion object {
         @Volatile
         private var INSTANCE: TaskDatabase? = null
 
@@ -21,13 +21,13 @@ abstract class TaskDatabase: RoomDatabase() {
                 return tempInstance
             }
             synchronized(this){
-                val instace = Room.databaseBuilder(
+                val instance = Room.databaseBuilder(
                     context.applicationContext,
                     TaskDatabase::class.java,
-                    "task_database"
+                    "user_database"
                 ).build()
-                INSTANCE = instace
-                return instace
+                INSTANCE = instance
+                return instance
             }
         }
     }

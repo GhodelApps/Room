@@ -1,8 +1,9 @@
-package harshbarash.github.room.ui.activities
+package harshbarash.github.room
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import harshbarash.github.room.R
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

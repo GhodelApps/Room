@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
     id "androidx.navigation.safeargs.kotlin"
     id "kotlin-kapt"
 }
@@ -10,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "harshbarash.github.room"
-        minSdk 21
+        minSdk 26
         targetSdk 31
         versionCode 1
         versionName "1.0"
