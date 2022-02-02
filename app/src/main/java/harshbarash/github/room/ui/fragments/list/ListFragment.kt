@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import harshbarash.github.room.R
 import harshbarash.github.room.databinding.FragmentListBinding
 import harshbarash.github.room.viewModel.TaskViewModel
@@ -35,5 +36,22 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         mTaskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
         mTaskViewModel.readAllData.observe(viewLifecycleOwner, Observer { task ->
             adapter.setData(task) })
+
+
+        _binding.btnTrash.setOnClickListener {
+            deleteAllTasks()
+        }
+    }
+
+    private fun deleteAllTasks() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Да") { _, _ ->
+            mTaskViewModel.deleteAllTasks()
+            view?.let { Snackbar.make(it, "Задачи удалены", Snackbar.LENGTH_LONG).show() }
+
+        }
+        builder.setNegativeButton("Нет") { _, _ -> }
+        builder.setTitle("Удалить задачи?")
+        builder.create().show()
     }
 }
