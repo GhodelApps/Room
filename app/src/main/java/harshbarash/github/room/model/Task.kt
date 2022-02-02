@@ -12,7 +12,6 @@ data class Task(
     val id: Int,
     val title: String,
     val description: String,
-    val point: Int,
-    val time: Time
+    val point: Int = 1
 )
 
