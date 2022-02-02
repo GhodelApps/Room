@@ -1,6 +1,7 @@
 package harshbarash.github.room.ui.fragments.list
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -26,14 +27,19 @@ class ListFragment : Fragment(R.layout.fragment_list) {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
 
-        val adapter = ListAdapter()
+        val adapter = ListAdapter{ task ->
+            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(task)
+            findNavController().navigate(action)
+        }
         val recyclerView = _binding.rvTasks
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         mTaskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
         mTaskViewModel.readAllData.observe(viewLifecycleOwner, Observer { task ->
-            adapter.setData(task) })
+            Log.d("SomeFragment", "$task")
+            adapter.setData(task) }
+        )
 
 
         _binding.btnTrash.setOnClickListener {

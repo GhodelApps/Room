@@ -41,7 +41,7 @@ class AddFragment : Fragment(R.layout.fragment_add) {
        val point = _binding.etPoint.text.toString().toInt()
 
         if(inputCheck(task, description, point)) {
-            val task = Task(id, task, description, point)
+            val task = Task(title  = task, description = description, point = point)
             mTaskViewModel.addTask(task)
             view?.let { Snackbar.make(it, "Задача поставлена", Snackbar.LENGTH_LONG).show() }
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
