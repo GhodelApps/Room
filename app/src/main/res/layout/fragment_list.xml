@@ -25,6 +25,7 @@
         <androidx.cardview.widget.CardView
             android:backgroundTint="?attr/colorPrimaryVariant"
             android:layout_width="0dp"
+            app:cardElevation="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_7sdp"
             android:layout_marginBottom="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_8sdp"
@@ -66,11 +67,37 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    <TextView
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="@dimen/_15ssp"
+        android:id="@+id/textView"
+        android:textColor="?attr/colorSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Задачи"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:textColor="?attr/colorSecondary"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Очки"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTasks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:listitem="@layout/task" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

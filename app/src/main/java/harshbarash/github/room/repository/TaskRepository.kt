@@ -1,8 +1,10 @@
 package harshbarash.github.room.repository
 
 import androidx.lifecycle.LiveData
+import androidx.room.Query
 import harshbarash.github.room.data.TaskDao
 import harshbarash.github.room.model.Task
+import kotlinx.coroutines.flow.Flow
 
 class TaskRepository(private val taskDao: TaskDao) {
 
@@ -22,6 +24,10 @@ class TaskRepository(private val taskDao: TaskDao) {
 
     suspend fun deleteAllTasks(){
         taskDao.deleteAllTasks()
+    }
+
+    fun searchDatabase(searchQuery: String): Flow<List<Task>> {
+        return taskDao.searchDatabase(searchQuery)
     }
 
 }

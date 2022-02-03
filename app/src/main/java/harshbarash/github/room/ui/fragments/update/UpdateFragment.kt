@@ -52,16 +52,15 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
         val point = Integer.parseInt(_binding.etUpdatePoint.text.toString())
 
         if (_binding.etUpdateTask.text?.let { inputCheck(task, description, it) } == true) {
-            // Create User Object
+            // Создается объект
             val updatedTask = Task(args.task.id, task, description, point)
-            // Update Current User
+            // Обновляется
             mTaskViewModel.updateTask(updatedTask)
-            Toast.makeText(requireContext(), "Updated Successfully!", Toast.LENGTH_SHORT).show()
-            // Navigate Back
+            view?.let { Snackbar.make(it, "Задача обновлена", Snackbar.LENGTH_LONG).show() }
+
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
         } else {
-            Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_SHORT)
-                .show()
+            view?.let { Snackbar.make(it, "Что-то пошло не так", Snackbar.LENGTH_LONG).show() }
         }
     }
 

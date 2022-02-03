@@ -3,7 +3,9 @@ package harshbarash.github.room.viewModel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import androidx.room.Query
 import harshbarash.github.room.data.TaskDatabase
 import harshbarash.github.room.model.Task
 import harshbarash.github.room.repository.TaskRepository
@@ -47,4 +49,7 @@ class TaskViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
+    fun searchDatabase(searchQuery: String): LiveData<List<Task>> {
+         return repository.searchDatabase(searchQuery).asLiveData()
+    }
 }

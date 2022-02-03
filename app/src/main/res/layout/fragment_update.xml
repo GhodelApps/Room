@@ -120,7 +120,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etUpdateDescription"
                     android:layout_width="@dimen/_270sdp"
-                    android:layout_height="@dimen/_40sdp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/_40sdp"
                     android:padding="@dimen/_10sdp"
                     android:fontFamily="@font/roboto"
                     android:hint="Описание"
